@@ -6,21 +6,40 @@ body, html {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow:hidden;
 }
+
+#slider { 
+    width:100%; height:100%; 
+    position:relative; 
+    z-index:1; 
+}
+
+#slider img {
+    width:100%; height:100%;
+    position:absolute;
+    top:0; left:0;
+    opacity:0;
+    transition:opacity 1s;
+    z-index:1;
+}
+
 #site-title {
     position:absolute; top:10px; left:10px;
     cursor:pointer;
     z-index:1000;
 }
+
 #category-name {
     position:absolute; top:10px; right:10px;
     font-weight:bold;
     z-index:1000;
 }
+
 #menu-button {
     position:absolute; top:10px; left:400px;
     cursor:pointer;
     z-index:1000;
 }
+
 #menu {
     position:absolute; top:0; left:0;
     width:100%; height:100%;
@@ -29,6 +48,3 @@ body, html {
     color:#ccc;
     z-index:999;
 }
-#menu ul { list-style:none; padding:0; margin:50px; }
-#menu ul li { margin:20px 0; cursor:pointer; }
-#slider { width:100%; height:100%; }
