@@ -7,7 +7,7 @@ let currentCategory = null;
 let languages = document.querySelectorAll('#languages li');
 let currentLang = 'es';
 let images = {
-    'trabajos': ['images/trabajos/img1.jpg','images/trabajos/img2.jpg'],
+    'trabajos': ['images/trabajos/lady1.jpg','images/trabajos/lady2.jpg'],
     'colaboraciones': ['images/colaboraciones/img1.jpg','images/colaboraciones/img2.jpg'],
     'creatividad': ['images/creatividad/img1.jpg','images/creatividad/img2.jpg'],
     'curriculum': ['images/curriculum/img1.jpg']
