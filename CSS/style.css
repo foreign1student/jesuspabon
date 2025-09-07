@@ -1,31 +1,31 @@
 body, html {
     margin:0; padding:0;
     width:100%; height:100%;
+    overflow:hidden;
     background-color:#000;
     font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
-    overflow:hidden;
 }
 
-/* Contenedor del slider detrás de todo */
+/* Contenedor del slider */
 #slider-container {
     position:absolute;
     top:0; left:0;
     width:100%; height:100%;
-    z-index:1; /* debajo del header */
+    z-index:0; /* debajo de todo */
 }
 
 #slider img {
-    width:100%; height:100%;
     position:absolute;
+    width:100%; height:100%;
     top:0; left:0;
     opacity:0;
-    transition:opacity 1s;
+    transition: opacity 1s;
 }
 
-/* Header y elementos interactivos siempre arriba */
-header, #site-title, #category-name, #menu-button, #menu {
+/* Header y menú siempre visibles */
+#header, #site-title, #category-name, #menu-button, #menu {
     position:absolute;
-    z-index:1000; /* más alto que las imágenes */
+    z-index:1000;
 }
 
 #site-title { top:10px; left:10px; cursor:pointer; }
