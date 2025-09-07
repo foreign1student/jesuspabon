@@ -8,7 +8,7 @@ let slideInterval = null;
 let images = {
   'trabajos': ['images/trabajos/lady1.jpg','images/trabajos/lady2.jpg'],
   'colaboraciones': ['images/colaboraciones/img1.jpg'],
-  'creatividad': ['images/creatividad/img1.jpg'],
+  'creatividad': ['images/creatividad/eva-xploradora.jpg'],
   'curriculum': ['images/curriculum/img1.jpg']
 };
 let texts = {};
