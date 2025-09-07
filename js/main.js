@@ -6,7 +6,7 @@ let slider = document.getElementById('slider');
 let currentCategory = null;
 let slideInterval = null;
 let images = {
-  'trabajos': ['images/trabajos/img1.jpg','images/trabajos/img2.jpg'],
+  'trabajos': ['images/trabajos/lady1.jpg','images/trabajos/lady2.jpg'],
   'colaboraciones': ['images/colaboraciones/img1.jpg'],
   'creatividad': ['images/creatividad/img1.jpg'],
   'curriculum': ['images/curriculum/img1.jpg']
