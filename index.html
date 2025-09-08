@@ -1,18 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Web</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { font-family: sans-serif; margin:0; padding:0; }
+  header { display: flex; align-items: center; padding: 10px 20px; background:#eee; justify-content: space-between; }
+  h1 { margin:0; }
+
+  /* Menú desplegable */
+  #menu-container { position: relative; display: inline-block; }
+  #menu { position: absolute; top: 100%; left: 0; background:#fff; border:1px solid #ccc; list-style:none; padding:0; margin:0; width:200px; opacity:0; pointer-events:none; transition: opacity 0.3s ease; }
+  #menu.show { opacity:1; pointer-events:auto; }
+  #menu li { padding:10px; cursor:pointer; }
+  #menu li:hover { background:#f0f0f0; }
+
+  /* Banderas */
+  #lang-container { display:flex; gap:5px; }
+  #lang-container button { background:none; border:none; cursor:pointer; }
+
+  /* Apartados */
+  .apartado { min-height:300px; padding:20px; border-bottom:1px solid #ccc; }
+  .slider img { width:100%; display:block; margin-bottom:10px; }
+</style>
+</head>
+<body>
+
 <header>
   <h1>Mi Página</h1>
+
+  <!-- Menú desplegable -->
   <div id="menu-container">
     <button id="menu-toggle">☰ Apartados</button>
-    <ul id="menu" class="fade-menu">
-      <li data-section="inicio">Inicio</li>
-      <li data-section="sobre">Sobre</li>
-      <li data-section="proyectos">Proyectos</li>
-      <li data-section="contacto">Contacto</li>
+    <ul id="menu">
+      <li data-section="trabajos">Trabajos</li>
+      <li data-section="colaboraciones">Colaboraciones</li>
+      <li data-section="creatividad">Creatividad</li>
+      <li data-section="curriculum">Currículum</li>
     </ul>
   </div>
+
+  <!-- Banderas -->
   <div id="lang-container">
-    <button class="lang-btn" data-lang="es">🇪🇸</button>
-    <button class="lang-btn" data-lang="de">🇩🇪</button>
-    <button class="lang-btn" data-lang="en">🇬🇧</button>
-    <button class="lang-btn" data-lang="fr">🇫🇷</button>
+    <button class="lang-btn" data-lang="es"><img src="images/flags/es.png" alt="Español"></button>
+    <button class="lang-btn" data-lang="de"><img src="images/flags/de.png" alt="Deutsch"></button>
+    <button class="lang-btn" data-lang="fr"><img src="images/flags/fr.png" alt="Français"></button>
+    <button class="lang-btn" data-lang="it"><img src="images/flags/it.png" alt="Italiano"></button>
   </div>
 </header>
+
+<!-- Apartados con slider -->
+<section id="trabajos" class="apartado"><div class="slider" id="slider-trabajos"></div></section>
+<section id="colaboraciones" class="apartado"><div class="slider" id="slider-colaboraciones"></div></section>
+<section id="creatividad" class="apartado"><div class="slider" id="slider-creatividad"></div></section>
+<section id="curriculum" class="apartado"><div class="slider" id="slider-curriculum"></div></section>
+
+<script src="js/script.js"></script>
+<script>
+// ---------------- MENÚ DESPLEGABLE CON FADE ----------------
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+let isAnimating = false;
+
+menuToggle.addEventListener('click', () => {
+  if(isAnimating) return;
+  if(menu.classList.contains('show')) fadeOut(menu);
+  else fadeIn(menu);
+});
+
+function fadeIn(element) {
+  isAnimating = true;
+  element.classList.add('show');
+  element.style.opacity = 0;
+  requestAnimationFrame(() => element.style.opacity = 1);
+  setTimeout(()=>isAnimating=false, 300);
+}
+
+function fadeOut(element) {
+  isAnimating = true;
+  element.style.opacity = 0;
+  setTimeout(()=>{ element.classList.remove('show'); isAnimating=false; }, 300);
+}
+
+// Cerrar menú al seleccionar sección
+menu.querySelectorAll('li').forEach(item => {
+  item.addEventListener('click', () => {
+    fadeOut(menu);
+    const section = document.getElementById(item.dataset.section);
+    if(section) section.scrollIntoView({ behavior:'smooth' });
+  });
+});
+
+// ---------------- CARGAR SLIDERS AUTOMÁTICOS ----------------
+const sliders = { trabajos:3, colaboraciones:2, creatividad:4, curriculum:1 };
+
+for(let section in sliders) {
+  const sliderDiv = document.getElementById(`slider-${section}`);
+  for(let i=1;i<=sliders[section];i++){
+    const img = document.createElement('img');
+    img.src = `images/slider/${section}/img${i}.jpg`;
+    img.alt = `${section} image ${i}`;
+    sliderDiv.appendChild(img);
+  }
+}
+
+// ---------------- CAMBIO DE IDIOMA ----------------
+const translations = {
+  es:{trabajos:"Trabajos", colaboraciones:"Colaboraciones", creatividad:"Creatividad", curriculum:"Currículum"},
+  de:{trabajos:"Arbeiten", colaboraciones:"Zusammenarbeit", creatividad:"Kreativität", curriculum:"Lebenslauf"},
+  en:{trabajos:"Work", colaboraciones:"Collaborations", creatividad:"Creativity", curriculum:"Resume"},
+  fr:{trabajos:"Travaux", colaboraciones:"Collaborations", creatividad:"Créativité", curriculum:"CV"},
+  it:{trabajos:"Lavori", colaboraciones:"Collaborazioni", creatividad:"Creatività", curriculum:"Curriculum"}
+};
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    menu.querySelectorAll('li').forEach(li => {
+      li.textContent = translations[lang][li.dataset.section];
+    });
+  });
+});
+</script>
+</body>
+</html>
