@@ -9,4 +9,28 @@ a:hover {
 a:link {
   text-decoration: none;
   color: black;
+
+/* CSS */
+.menu-column {
+  vertical-align: top;
+  width: 196px;
+  height: 500px;
+  font-family: "Courier New", monospace;
+  font-size: 14px; /* ajusta según prefieras */
+}
+
+.menu-column a {
+  font-weight: bold;
+  color: inherit; /* mantiene el color del td o del body */
+  text-decoration: none; /* quita subrayado si quieres */
+  display: block; /* cada enlace en su propia línea */
+  margin-bottom: 4px; /* espacio entre enlaces */
+}
+
+.menu-column a:hover {
+  text-decoration: underline; /* opcional: efecto hover */
+}
+
+
+  
 }
