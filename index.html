@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jesús Pabón Fernández - Arquitecto y Artista 3D</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <!-- Slider de fondo -->
-  <div id="slider-container">
-    <div id="slider"></div>
+<header>
+  <h1>Mi Página</h1>
+  <div id="menu-container">
+    <button id="menu-toggle">☰ Apartados</button>
+    <ul id="menu" class="fade-menu">
+      <li data-section="inicio">Inicio</li>
+      <li data-section="sobre">Sobre</li>
+      <li data-section="proyectos">Proyectos</li>
+      <li data-section="contacto">Contacto</li>
+    </ul>
   </div>
-
-  <!-- UI encima -->
-  <div id="ui-container">
-    <header id="header">
-      <div id="site-title">Jesús Pabón Fernández - arquitecto y artista 3D</div>
-      <div id="category-name"></div>
-      <div id="menu-button">☰</div>
-      <nav id="menu">
-        <ul>
-          <li data-category="trabajos">Trabajos</li>
-          <li data-category="colaboraciones">Colaboraciones</li>
-          <li data-category="creatividad">Creatividad</li>
-          <li data-category="curriculum">Currículum</li>
-        </ul>
-      </nav>
-      <div id="lang-menu">
-        <img src="images/flags/es.png" data-lang="es" alt="ES">
-        <img src="images/flags/de.png" data-lang="de" alt="DE">
-        <img src="images/flags/fr.png" data-lang="fr" alt="FR">
-        <img src="images/flags/it.png" data-lang="it" alt="IT">
-      </div>
-    </header>
+  <div id="lang-container">
+    <button class="lang-btn" data-lang="es">🇪🇸</button>
+    <button class="lang-btn" data-lang="de">🇩🇪</button>
+    <button class="lang-btn" data-lang="en">🇬🇧</button>
+    <button class="lang-btn" data-lang="fr">🇫🇷</button>
   </div>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+</header>
