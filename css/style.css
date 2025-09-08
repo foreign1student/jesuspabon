@@ -1,33 +1,78 @@
+/* === GENERAL === */
 body, html {
-  margin:0; padding:0;
-  width:100%; height:100%;
-  overflow:hidden;
-  background-color:#000;
-  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: black; /* color de seguridad */
+  overflow: hidden;
 }
+
+/* === SLIDER === */
 #slider-container {
-  position:fixed; top:0; left:0;
-  width:100%; height:100%;
-  z-index:0;
+  position: relative;
+  width: 100%;
+  height: 100vh;       /* ocupa siempre toda la pantalla */
+  overflow: hidden;
+  background: black;   /* franjas negras sólidas */
 }
-#slider img {
-  position:absolute;
-  width:100%; height:100%;
-  top:0; left:0;
-  opacity:0;
-  transition:opacity 1s;
+
+#slider {
+  width: 100%;
+  height: 100%;
+  background-size: contain;   /* mantiene proporciones originales */
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: opacity 1s ease-in-out; /* efecto fade */
+  opacity: 1;
 }
+
+/* === UI === */
 #ui-container {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  z-index:1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
-#site-title { position:absolute; top:10px; left:10px; cursor:pointer; color:#ccc; }
-#category-name { position:absolute; top:10px; right:10px; font-weight:bold; color:#fff; }
-#menu-button { position:absolute; top:10px; left:400px; cursor:pointer; color:#ccc; }
-#menu { position:absolute; top:0; left:0; width:100%; height:100%; display:none; background-color:rgba(0,0,0,0.9); color:#ccc; z-index:1001; }
-#menu ul { list-style:none; padding:50px; }
-#menu ul li { margin:15px 0; cursor:pointer; font-size:1.2em; }
-#lang-menu { position:absolute; top:10px; right:10px; z-index:1100; }
-#lang-menu img { width:30px; height:20px; margin-left:5px; cursor:pointer; }
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#site-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+}
+
+#menu li {
+  cursor: pointer;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+#menu li:hover {
+  color: #aaa;
+}
+
+/* === BANDERAS === */
+#lang-menu img {
+  height: 24px;
+  width: auto;        /* mantiene proporción */
+  display: inline-block;
+  object-fit: contain;
+  cursor: pointer;
+}
