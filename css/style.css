@@ -1,33 +1,46 @@
-#menu-container {
-  position: relative;
-  display: inline-block;
-}
+/* Reset y fuente elegante */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background:#000; color:#ccc; overflow:hidden; }
 
-.fade-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 200px;
-  opacity: 0;
-  pointer-events: none; /* No interactivo mientras invisible */
-  transition: opacity 0.3s ease;
+/* HEADER */
+header {
+  position:absolute; top:0; left:0; width:100%; height:60px;
+  display:flex; justify-content:space-between; align-items:center; padding:0 20px; z-index:100;
 }
+#site-title { cursor:pointer; font-size:1rem; color:#ccc; transition: color 0.3s ease; }
+#site-title.inactive { color: #444; }
 
-.fade-menu.show {
-  opacity: 1;
-  pointer-events: auto; /* Interactivo cuando visible */
+#menu-container { position:relative; }
+#menu-toggle { background:none; border:none; color:#ccc; font-size:1rem; cursor:pointer; }
+#menu {
+  position:absolute; top:60px; left:0; background:#111; padding:10px; list-style:none;
+  opacity:0; pointer-events:none; transition: opacity 0.3s ease;
 }
+#menu.show { opacity:1; pointer-events:auto; }
+#menu li { padding:10px 20px; cursor:pointer; color:#ccc; font-size:0.95rem; }
+#menu li:hover { background:#222; }
 
-.fade-menu li {
-  padding: 10px;
-  cursor: pointer;
+/* Banderas */
+#lang-container { display:flex; gap:5px; }
+#lang-container button { background:none; border:none; cursor:pointer; }
+
+/* Contenedor principal de sección */
+.section {
+  position:absolute; top:0; left:0; width:100vw; height:100vh;
+  display:flex; justify-content:center; align-items:center;
+  background:#000; transition:opacity 1s ease; opacity:0;
 }
+.section.active { opacity:1; z-index:1; }
 
-.fade-menu li:hover {
-  background: #f0f0f0;
+/* Slider */
+.slider { position:relative; width:90vw; height:90vh; overflow:hidden; }
+.slider img {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:auto; height:100%; max-width:100%; opacity:0; transition:opacity 1s ease;
+}
+.slider img.active { opacity:1; }
+
+/* Nombre categoría activa */
+#current-section {
+  position:absolute; top:20px; right:20px; font-size:1.2rem; color:#ccc; font-weight:bold;
 }
