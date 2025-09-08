@@ -1,0 +1,12 @@
+body {
+  background-repeat: no-repeat;
+  background-position:  center center;
+  background-color: white;
+}
+a:hover {
+  color: #999999;
+}
+a:link {
+  text-decoration: none;
+  color: black;
+}
