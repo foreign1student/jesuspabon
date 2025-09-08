@@ -12,18 +12,18 @@ body, html {
 #slider-container {
   position: relative;
   width: 100%;
-  height: 100vh;       /* ocupa siempre toda la pantalla */
+  height: 100vh;
   overflow: hidden;
-  background: black;   /* franjas negras sólidas */
+  background: black; /* franjas negras sólidas */
 }
 
 #slider {
   width: 100%;
   height: 100%;
-  background-size: contain;   /* mantiene proporciones originales */
+  background-size: contain;   /* mantiene proporciones */
   background-repeat: no-repeat;
   background-position: center center;
-  transition: opacity 1s ease-in-out; /* efecto fade */
+  transition: opacity 1s ease-in-out; /* fade */
   opacity: 1;
 }
 
